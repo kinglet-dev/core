@@ -1,0 +1,8 @@
+# Coverage output (never committed)
+*.out
+/coverdata/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+*.swp
