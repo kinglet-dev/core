@@ -2,7 +2,7 @@
 
 All notable changes to core. Versions follow [Semantic Versioning](https://semver.org/). Until 1.0, minor versions may change the API; patch versions never do.
 
-## 0.4.0 (unreleased)
+## 0.4.0 (2026-10-11)
 
 ### Added
 
