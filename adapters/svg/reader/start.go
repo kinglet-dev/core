@@ -71,6 +71,9 @@ func (w *walker) addShape(el xml.StartElement, path geom.Path, ctx context) erro
 		Path:      mm,
 		Filled:    ctx.paint.filled(),
 		WhiteFill: ctx.paint.white(),
+		Element:   w.elements - 1, // count has numbered this element
+		Fill:      ctx.paint.fill,
+		Stroke:    ctx.paint.stroke,
 	})
 	return nil
 }
