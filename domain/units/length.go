@@ -12,8 +12,14 @@ type Length struct {
 	mm float64
 }
 
-// Millimetres returns the length in millimetres.
-func (l Length) Millimetres() float64 { return l.mm }
+// Millimeters returns the length in millimeters.
+func (l Length) Millimeters() float64 { return l.mm }
+
+// Millimetres returns the length in millimeters.
+//
+// Deprecated: use Millimeters; this spelling will be removed in a later
+// release.
+func (l Length) Millimetres() float64 { return l.Millimeters() }
 
 // unitLength is the length of every supported unit name.
 const unitLength = 2

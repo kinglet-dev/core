@@ -13,8 +13,8 @@ import (
 func pt(x, y float64) geom.Point { return geom.Point{X: x, Y: y} }
 
 func expectCircle(c enclose.Circle, x, y, diameter float64) {
-	Expect(c.Centre.X).To(BeNumerically("~", x, 1e-9))
-	Expect(c.Centre.Y).To(BeNumerically("~", y, 1e-9))
+	Expect(c.Center.X).To(BeNumerically("~", x, 1e-9))
+	Expect(c.Center.Y).To(BeNumerically("~", y, 1e-9))
 	Expect(c.Diameter).To(BeNumerically("~", diameter, 1e-9))
 }
 
@@ -116,5 +116,15 @@ var _ = Describe("Smallest finds the smallest circle holding every point", func(
 
 		// Assert
 		Expect(points).To(Equal([]geom.Point{pt(0, 0), pt(1, 0), pt(1, 1), pt(0, 1)}))
+	})
+})
+
+var _ = Describe("Centre, the old spelling", func() {
+	It("still holds the center, until it is removed", func() {
+		// Act
+		c := enclose.Smallest([]geom.Point{pt(0, 0), pt(4, 2)})
+
+		// Assert
+		Expect(c.Centre).To(Equal(c.Center)) //nolint:staticcheck // the deprecated name, kept working
 	})
 })

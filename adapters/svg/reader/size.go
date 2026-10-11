@@ -59,10 +59,10 @@ func dimension(value string, fromBox float64, hasBox bool) (float64, error) {
 	if err != nil {
 		return 0, fmt.Errorf("%w: %w", ErrNoSize, err)
 	}
-	if l.Millimetres() <= 0 {
+	if l.Millimeters() <= 0 {
 		return 0, ErrNoSize
 	}
-	return l.Millimetres(), nil
+	return l.Millimeters(), nil
 }
 
 // viewBox parses "min-x min-y width height".
