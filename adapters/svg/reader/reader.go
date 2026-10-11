@@ -1,4 +1,4 @@
-// Package reader turns an SVG document into a design measured in millimetres.
+// Package reader turns an SVG document into a design measured in millimeters.
 // The document is untrusted: its size, nesting and complexity are bounded,
 // and nothing outside it (entities, links, images) is ever loaded.
 package reader
@@ -14,7 +14,7 @@ import (
 )
 
 // context is what an element inherits from its ancestors: the matrix from
-// its user units to millimetres, its paint, and whether it is being skipped.
+// its user units to millimeters, its paint, and whether it is being skipped.
 type context struct {
 	toMM  geom.Matrix
 	paint paint

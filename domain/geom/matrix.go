@@ -1,6 +1,6 @@
 // Package geom holds the plane geometry Kinglet's tools measure: points, affine
 // transforms, paths and polylines. Units are whatever the caller uses; the
-// reader converts everything to millimetres.
+// reader converts everything to millimeters.
 package geom
 
 // Point is a position in the plane.

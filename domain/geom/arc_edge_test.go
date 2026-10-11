@@ -64,7 +64,7 @@ var _ = Describe("ArcTo with out-of-range parameters", func() {
 
 var _ = Describe("ArcTo with an x-axis rotation", func() {
 	It("turns the ellipse, so a 10 × 5 ellipse rotated 90° stands upright", func() {
-		// Arrange: half of an upright ellipse centred at the origin, 5 wide and 10 tall.
+		// Arrange: half of an upright ellipse centered at the origin, 5 wide and 10 tall.
 		start, end := geom.Point{X: 0, Y: -10}, geom.Point{X: 0, Y: 10}
 
 		// Act

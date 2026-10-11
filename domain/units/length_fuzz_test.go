@@ -21,7 +21,7 @@ func FuzzParseLength(f *testing.F) {
 		if err != nil {
 			return
 		}
-		mm := length.Millimetres()
+		mm := length.Millimeters()
 		if math.IsNaN(mm) || math.IsInf(mm, 0) || mm < 0 {
 			t.Fatalf("ParseLength(%q) = %v mm, want a finite, non-negative length", input, mm)
 		}

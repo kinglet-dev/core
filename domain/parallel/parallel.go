@@ -10,7 +10,7 @@ import (
 
 // For calls f(i) once for every i from 0 to n-1, on all processors, and
 // returns when all calls are done. Indexes are dealt out in turn, since
-// neighbouring indexes often cost about the same (dense areas cluster).
+// neighboring indexes often cost about the same (dense areas cluster).
 func For(n int, f func(i int)) {
 	workers := min(runtime.GOMAXPROCS(0), n)
 	var wg sync.WaitGroup

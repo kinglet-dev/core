@@ -8,8 +8,8 @@ import (
 )
 
 var _ = Describe("ParseLength", func() {
-	Context("when the value is in millimetres", func() {
-		It("returns the same number of millimetres", func() {
+	Context("when the value is in millimeters", func() {
+		It("returns the same number of millimeters", func() {
 			// Arrange
 			input := "0.25mm"
 
@@ -18,13 +18,13 @@ var _ = Describe("ParseLength", func() {
 
 			// Assert
 			Expect(err).NotTo(HaveOccurred())
-			Expect(length.Millimetres()).To(BeNumerically("~", 0.25, 1e-12))
+			Expect(length.Millimeters()).To(BeNumerically("~", 0.25, 1e-12))
 		})
 	})
 })
 
 var _ = Describe("ParseLength with other units", func() {
-	DescribeTable("converts the value to millimetres",
+	DescribeTable("converts the value to millimeters",
 		func(input string, expectedMM float64) {
 			// Arrange: the input and expected value come from the table entry.
 
@@ -33,7 +33,7 @@ var _ = Describe("ParseLength with other units", func() {
 
 			// Assert
 			Expect(err).NotTo(HaveOccurred())
-			Expect(length.Millimetres()).To(BeNumerically("~", expectedMM, 1e-9))
+			Expect(length.Millimeters()).To(BeNumerically("~", expectedMM, 1e-9))
 		},
 		Entry("centimetres", "2.5cm", 25.0),
 		Entry("inches", "4in", 101.6),
@@ -64,4 +64,18 @@ var _ = Describe("ParseLength with invalid input", func() {
 		Entry("a length that overflows when converted", "1e308in", units.ErrTooLarge),
 		Entry("a length beyond 10 km", "10000001mm", units.ErrTooLarge),
 	)
+})
+
+var _ = Describe("Millimetres, the old spelling", func() {
+	It("still gives the length in millimeters, until it is removed", func() {
+		// Arrange
+		length, err := units.ParseLength("1in")
+		Expect(err).NotTo(HaveOccurred())
+
+		// Act
+		got := length.Millimetres() //nolint:staticcheck // the deprecated name, kept working
+
+		// Assert
+		Expect(got).To(Equal(length.Millimeters()))
+	})
 })

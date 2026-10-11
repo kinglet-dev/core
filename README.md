@@ -2,13 +2,13 @@
   <a href="https://github.com/kinglet-dev/core/actions/workflows/ci.yml"><img src="https://github.com/kinglet-dev/core/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI status"></a>
   <a href="https://github.com/kinglet-dev/core/actions/workflows/badges.yml"><img src="https://raw.githubusercontent.com/kinglet-dev/core/badges/coverage.svg" alt="Test coverage, measured in CI"></a>
   <a href="https://github.com/kinglet-dev/core/releases/latest"><img src="https://raw.githubusercontent.com/kinglet-dev/core/badges/release.svg" alt="Latest release"></a>
-  <a href="LICENSE"><img src="https://raw.githubusercontent.com/kinglet-dev/core/badges/licence.svg" alt="Licence: MIT"></a>
+  <a href="LICENSE"><img src="https://raw.githubusercontent.com/kinglet-dev/core/badges/license.svg" alt="License: MIT"></a>
   <a href="go.mod"><img src="https://raw.githubusercontent.com/kinglet-dev/core/badges/go.svg" alt="Go version"></a>
 </p>
 
 # core
 
-**The shared building blocks of Kinglet's maker tools:** a strict SVG reader that measures designs in millimetres, plane geometry, and the measurements behind [laserlint](https://github.com/kinglet-dev/laserlint)'s checks.
+**The shared building blocks of Kinglet's maker tools:** a strict SVG reader that measures designs in millimeters, plane geometry, and the measurements behind [laserlint](https://github.com/kinglet-dev/laserlint)'s checks.
 
 It's a Go library, standard library only. Nothing here touches the network.
 
@@ -27,7 +27,7 @@ if err != nil {
 }
 defer f.Close()
 
-d, err := reader.Read(f) // millimetres, at the size saved in the file
+d, err := reader.Read(f) // millimeters, at the size saved in the file
 if err != nil {
 	log.Fatal(err)
 }

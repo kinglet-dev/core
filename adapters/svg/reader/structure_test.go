@@ -5,7 +5,7 @@ import (
 	. "github.com/onsi/gomega"
 )
 
-// mm96 is a document where one user unit is one millimetre.
+// mm96 is a document where one user unit is one millimeter.
 const mm96 = `width="100mm" height="100mm" viewBox="0 0 100 100"`
 
 var _ = Describe("Read with groups and transforms", func() {

@@ -84,7 +84,7 @@ var _ = Describe("Measure treats separate lines that meet end to end as one line
 		Expect(r.Close).To(BeNumerically("~", 3*0.35, tol))
 	})
 
-	It("doesn't join ends one and a half millionths of a millimetre apart", func() {
+	It("doesn't join ends one and a half millionths of a millimeter apart", func() {
 		// Act
 		r := measure(line(pt(0, 0), pt(10, 0)), line(pt(10, 0.0000015), pt(10, 10)))
 
@@ -93,7 +93,7 @@ var _ = Describe("Measure treats separate lines that meet end to end as one line
 	})
 
 	It("joins ends that lie either side of a grid cell boundary", func() {
-		// Arrange: 10 mm is a boundary of the millionth-of-a-millimetre grid.
+		// Arrange: 10 mm is a boundary of the millionth-of-a-millimeter grid.
 		pairs := [][2][2]float64{{{9.9999998, 0}, {10.0000002, 0}}, {{0, 9.9999998}, {0, 10.0000002}}}
 
 		for _, p := range pairs {
@@ -107,7 +107,7 @@ var _ = Describe("Measure treats separate lines that meet end to end as one line
 		}
 	})
 
-	It("joins two lines whose ends differ by less than a millionth of a millimetre", func() {
+	It("joins two lines whose ends differ by less than a millionth of a millimeter", func() {
 		// Act
 		r := measure(line(pt(0, 0), pt(10, 0)), line(pt(10, 0.0000004), pt(10, 10)))
 
@@ -115,7 +115,7 @@ var _ = Describe("Measure treats separate lines that meet end to end as one line
 		Expect(r.Close).To(BeZero())
 	})
 
-	It("measures three lines meeting at a point the same when their ends are a few millionths of a millimetre apart", func() {
+	It("measures three lines meeting at a point the same when their ends are a few millionths of a millimeter apart", func() {
 		// Arrange: the first line's start meets the second line's start, which
 		// also meets the third line's end, but the first and third don't meet.
 		exact := []float64{0, 0, 0}

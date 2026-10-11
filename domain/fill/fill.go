@@ -1,4 +1,4 @@
-// Package fill tells what colour a design shows at a point: the colour of
+// Package fill tells what color a design shows at a point: the color of
 // the topmost filled shape containing it. Containment follows SVG's default
 // nonzero rule, counted with the winding number (Sunday, "Inclusion of a
 // point in a polygon", 2001; Hormann and Agathos 2001), and edges are
@@ -26,7 +26,7 @@ type edge struct {
 	shape int
 }
 
-// Fill answers colour queries for one design.
+// Fill answers color queries for one design.
 type Fill struct {
 	white []bool
 	rows  map[int][]edge

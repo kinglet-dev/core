@@ -23,7 +23,7 @@ type Limits struct {
 // DefaultLimits are the limits in the reader's threat model.
 var DefaultLimits = Limits{Bytes: 25_000_000, Depth: 256, Elements: 200_000, Pieces: 2_000_000}
 
-// maxMM bounds every coordinate once converted to millimetres (10 km).
+// maxMM bounds every coordinate once converted to millimeters (10 km).
 const maxMM = 10_000_000
 
 // limitedReader fails with ErrTooLarge once more than left bytes are read.
@@ -74,7 +74,7 @@ func directive(d xml.Directive) error {
 	return nil
 }
 
-// inRange reports whether every point of a path in millimetres is finite
+// inRange reports whether every point of a path in millimeters is finite
 // and within maxMM.
 func inRange(p geom.Path) bool {
 	ok := func(q geom.Point) bool { return math.Abs(q.X) <= maxMM && math.Abs(q.Y) <= maxMM }

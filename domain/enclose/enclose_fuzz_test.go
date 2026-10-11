@@ -38,7 +38,7 @@ func FuzzSmallest(f *testing.F) {
 			t.Fatalf("diameter %v larger than the bounding box's diagonal", c.Diameter)
 		}
 		for _, p := range points {
-			if !(math.Hypot(p.X-c.Centre.X, p.Y-c.Centre.Y) <= c.Diameter/2+tol) {
+			if !(math.Hypot(p.X-c.Center.X, p.Y-c.Center.Y) <= c.Diameter/2+tol) {
 				t.Fatalf("point %v outside circle %v", p, c)
 			}
 		}

@@ -2,8 +2,8 @@
 // scored line. Laser lines closer than their own width plus a clear gap
 // burn together, so fine detail turns into a dark smudge.
 //
-// A point is too close when scored line within MinDistance (centre to
-// centre) belongs to another line, or to the same line after a turn tighter
+// A point is too close when scored line within MinDistance (center to
+// center) belongs to another line, or to the same line after a turn tighter
 // than a half circle of diameter MinDistance: the tightest U-turn that
 // keeps the gap. So sharp corners count near their tip, while right angles
 // and gentle curves never do. A closed loop smaller than MinDistance has no
@@ -19,7 +19,7 @@ import (
 
 // Params sets the measurement.
 type Params struct {
-	MinDistance float64 // centre-to-centre distance below which lines are too close, mm
+	MinDistance float64 // center-to-center distance below which lines are too close, mm
 	Step        float64 // length of line each sample stands for, mm
 	MaxSamples  int     // limit on samples, so huge designs fail clearly instead of running for ever
 }
@@ -27,7 +27,7 @@ type Params struct {
 // Spot is one stretch of line that is too close to other line.
 type Spot struct {
 	At       geom.Point // where the other line is nearest
-	Distance float64    // nearest centre-to-centre distance, mm
+	Distance float64    // nearest center-to-center distance, mm
 	Length   float64    // length of the stretch, mm
 }
 

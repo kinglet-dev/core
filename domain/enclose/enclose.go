@@ -1,5 +1,5 @@
 // Package enclose finds the smallest circle that holds a set of points,
-// with Welzl's randomised incremental algorithm (Welzl 1991; de Berg et al.,
+// with Welzl's randomized incremental algorithm (Welzl 1991; de Berg et al.,
 // "Computational Geometry", section 4.7). Points are shuffled with a fixed
 // seed, so the expected time is linear and every run gives the same answer.
 package enclose
@@ -13,8 +13,12 @@ import (
 
 // Circle is a circle in mm.
 type Circle struct {
-	Centre   geom.Point
+	Center   geom.Point
 	Diameter float64
+
+	// Deprecated: use Center, which holds the same point; this spelling
+	// will be removed in a later release.
+	Centre geom.Point
 }
 
 // disc is a circle by its radius, the form the algorithm works in.
@@ -42,7 +46,7 @@ func Smallest(points []geom.Point) Circle {
 			d = withOne(p[:i], p[i])
 		}
 	}
-	return Circle{Centre: d.c, Diameter: 2 * d.r}
+	return Circle{Center: d.c, Diameter: 2 * d.r, Centre: d.c}
 }
 
 // withOne is the smallest disc holding points with q on its edge.

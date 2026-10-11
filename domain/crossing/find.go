@@ -39,7 +39,7 @@ type Stack struct {
 var ErrTooComplex = errors.New("the design has too much line to check for crossings")
 
 // Find searches the lines. Pieces that meet only end to end are not
-// crossings: neighbouring pieces of one line, and separate lines that join,
+// crossings: neighboring pieces of one line, and separate lines that join,
 // as split paths do.
 func Find(lines []geom.Polyline, p Params) (Result, error) {
 	segs := collect(lines)
