@@ -2,7 +2,7 @@
 
 All notable changes to core. Versions follow [Semantic Versioning](https://semver.org/). Until 1.0, minor versions may change the API; patch versions never do.
 
-## 0.1.0 (unreleased)
+## 0.1.0 (2026-10-11)
 
 The first release: the packages laserlint 0.1.2 used for reading and measuring designs, moved here unchanged so other Kinglet tools can share them.
 
