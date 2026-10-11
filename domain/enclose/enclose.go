@@ -1,5 +1,5 @@
 // Package enclose finds the smallest circle that holds a set of points,
-// with Welzl's randomised incremental algorithm (Welzl 1991; de Berg et al.,
+// with Welzl's randomized incremental algorithm (Welzl 1991; de Berg et al.,
 // "Computational Geometry", section 4.7). Points are shuffled with a fixed
 // seed, so the expected time is linear and every run gives the same answer.
 package enclose

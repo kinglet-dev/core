@@ -103,7 +103,7 @@ var _ = Describe("Densest finds the most scored line in any window", func() {
 		Expect(r.Density).To(BeNumerically("~", 0.16, 1e-9))
 	})
 
-	It("finds the densest area and says where its centre is", func() {
+	It("finds the densest area and says where its center is", func() {
 		// Arrange: a sparse line far from a dense hatch.
 		lines := append(hatch(40, 40), line(pt(0, 0), pt(10, 0)))
 

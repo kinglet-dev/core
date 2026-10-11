@@ -25,7 +25,7 @@ type Params struct {
 // Result is the densest window.
 type Result struct {
 	Density float64    // mm of line per mm²
-	At      geom.Point // centre of the window
+	At      geom.Point // center of the window
 }
 
 // ErrTooLarge means the design's lines spread over too many cells to measure.

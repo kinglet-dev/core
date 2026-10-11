@@ -17,7 +17,7 @@ const mmPerPx = 25.4 / 96
 type box struct{ x, y, w, h float64 }
 
 // size works out the document's physical size and the transform from its
-// user units to millimetres, following the SVG rules: numbers without units
+// user units to millimeters, following the SVG rules: numbers without units
 // are CSS pixels, a missing width or height comes from the viewBox, and
 // without a viewBox one user unit is one CSS pixel.
 func size(a attributes) (width, height float64, toMM geom.Matrix, err error) {
@@ -97,8 +97,8 @@ func fit(vb box, width, height float64, par string) (geom.Matrix, error) {
 		return origin.Then(geom.Matrix{A: sx, D: sy}), nil
 	case "", "xMidYMid", "xMidYMid meet":
 		s := math.Min(sx, sy)
-		centre := geom.Matrix{A: 1, D: 1, E: (width - vb.w*s) / 2, F: (height - vb.h*s) / 2}
-		return origin.Then(geom.Matrix{A: s, D: s}).Then(centre), nil
+		center := geom.Matrix{A: 1, D: 1, E: (width - vb.w*s) / 2, F: (height - vb.h*s) / 2}
+		return origin.Then(geom.Matrix{A: s, D: s}).Then(center), nil
 	}
 	return geom.Matrix{}, fmt.Errorf("%w: preserveAspectRatio=%q (in Inkscape, set the page to fit the drawing)", ErrUnsupported, par)
 }

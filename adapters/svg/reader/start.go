@@ -38,7 +38,7 @@ func (w *walker) start(el xml.StartElement) error {
 }
 
 // context combines an element's own attributes with what it inherits. The
-// root svg element sets the millimetre scale from the document's size.
+// root svg element sets the millimeter scale from the document's size.
 func (w *walker) context(el xml.StartElement, a attributes) (context, error) {
 	if len(w.stack) == 0 {
 		var ctx context
@@ -61,7 +61,7 @@ func (w *walker) context(el xml.StartElement, a attributes) (context, error) {
 	return ctx, nil
 }
 
-// addShape records a shape in millimetres with what the laser will score.
+// addShape records a shape in millimeters with what the laser will score.
 func (w *walker) addShape(el xml.StartElement, path geom.Path, ctx context) error {
 	mm := path.Transform(ctx.toMM)
 	if !inRange(mm) {

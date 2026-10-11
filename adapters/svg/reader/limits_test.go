@@ -109,7 +109,7 @@ var _ = Describe("Read's limits on hostile or runaway files", func() {
 	})
 })
 
-var _ = Describe("Read's defences against XML attacks and extreme numbers", func() {
+var _ = Describe("Read's defenses against XML attacks and extreme numbers", func() {
 	It("accepts the plain DOCTYPE line older tools write", func() {
 		// Arrange
 		doc := `<?xml version="1.0"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" ` +

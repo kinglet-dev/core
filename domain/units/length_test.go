@@ -8,8 +8,8 @@ import (
 )
 
 var _ = Describe("ParseLength", func() {
-	Context("when the value is in millimetres", func() {
-		It("returns the same number of millimetres", func() {
+	Context("when the value is in millimeters", func() {
+		It("returns the same number of millimeters", func() {
 			// Arrange
 			input := "0.25mm"
 
@@ -24,7 +24,7 @@ var _ = Describe("ParseLength", func() {
 })
 
 var _ = Describe("ParseLength with other units", func() {
-	DescribeTable("converts the value to millimetres",
+	DescribeTable("converts the value to millimeters",
 		func(input string, expectedMM float64) {
 			// Arrange: the input and expected value come from the table entry.
 

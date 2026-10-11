@@ -11,7 +11,7 @@ import (
 
 func pt(x, y float64) geom.Point { return geom.Point{X: x, Y: y} }
 
-// square is a closed square subpath, anticlockwise or not.
+// square is a closed square subpath, counterclockwise or not.
 func square(x, y, side float64, reverse bool) geom.Subpath {
 	pts := []geom.Point{pt(x+side, y), pt(x+side, y+side), pt(x, y+side)}
 	if reverse {
@@ -62,7 +62,7 @@ var _ = Describe("Fill tells whether the design shows dark fill at a point", fun
 		Expect(dark(pt(5, 5), double)).To(BeTrue())
 	})
 
-	It("shows the colour of the shape painted last", func() {
+	It("shows the color of the shape painted last", func() {
 		// Arrange
 		black, white := shape(true, false, square(0, 0, 10, false)), shape(true, true, square(2, 2, 6, false))
 
@@ -88,7 +88,7 @@ var _ = Describe("Fill tells whether the design shows dark fill at a point", fun
 		Expect(dark(pt(5, -0.2), black)).To(BeFalse())
 	})
 
-	It("gives each point on a shared side to exactly one of two neighbouring shapes", func() {
+	It("gives each point on a shared side to exactly one of two neighboring shapes", func() {
 		// Arrange: a black square with a white one beside it on the right, and one below.
 		black := shape(true, false, square(0, 0, 10, false))
 		right, below := shape(true, true, square(10, 0, 10, false)), shape(true, true, square(0, 10, 10, false))

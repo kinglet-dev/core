@@ -28,7 +28,7 @@ func extremeY(pts []geom.Point) float64 {
 
 var _ = Describe("ArcTo", func() {
 	Context("for a half circle of radius 5 from (0,0) to (10,0)", func() {
-		It("keeps every point 5 from the centre (5,0)", func() {
+		It("keeps every point 5 from the center (5,0)", func() {
 			// Arrange
 			start, end := geom.Point{X: 0, Y: 0}, geom.Point{X: 10, Y: 0}
 
@@ -68,7 +68,7 @@ var _ = Describe("ArcTo", func() {
 })
 
 var _ = Describe("ArcTo with the large-arc flag", func() {
-	// Two circles of radius 10 pass through (0,0) and (10,0); their centres
+	// Two circles of radius 10 pass through (0,0) and (10,0); their centers
 	// are at (5, ±8.66). The small arc bulges 10 − 8.66 = 1.34 from the chord,
 	// the large arc 10 + 8.66 = 18.66.
 	DescribeTable("chooses the arc the flags ask for",

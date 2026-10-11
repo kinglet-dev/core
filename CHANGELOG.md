@@ -2,6 +2,20 @@
 
 All notable changes to core. Versions follow [Semantic Versioning](https://semver.org/). Until 1.0, minor versions may change the API; patch versions never do.
 
+## 0.4.0 (unreleased)
+
+### Added
+
+- `units.Length.Millimeters` and `enclose.Circle.Center`, in American spelling like the rest of Kinglet.
+
+### Deprecated
+
+- `units.Length.Millimetres` and `enclose.Circle.Centre`. They still work and give the same values; a later release will remove them.
+
+### Changed
+
+- American spelling throughout the comments, tests and docs. The license badge is now `badges/license.svg`.
+
 ## 0.3.0 (2026-10-11)
 
 ### Added

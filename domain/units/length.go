@@ -24,11 +24,11 @@ func (l Length) Millimetres() float64 { return l.Millimeters() }
 // unitLength is the length of every supported unit name.
 const unitLength = 2
 
-// maxMillimetres (10 km) rejects absurd values before they reach geometry code.
-const maxMillimetres = 10_000_000
+// maxMillimeters (10 km) rejects absurd values before they reach geometry code.
+const maxMillimeters = 10_000_000
 
-// millimetresPer lists the supported units. CSS defines 96 px and 72 pt per inch.
-var millimetresPer = map[string]float64{
+// millimetersPer lists the supported units. CSS defines 96 px and 72 pt per inch.
+var millimetersPer = map[string]float64{
 	"mm": 1,
 	"cm": 10,
 	"in": 25.4,
@@ -46,7 +46,7 @@ func ParseLength(s string) (Length, error) {
 	// Every supported unit is two letters; anything before them is the number.
 	split := len(s) - min(letters, unitLength)
 	number, unit := s[:split], s[split:]
-	perUnit, known := millimetresPer[unit]
+	perUnit, known := millimetersPer[unit]
 	if !known {
 		return Length{}, ErrUnknownUnit
 	}
@@ -58,7 +58,7 @@ func ParseLength(s string) (Length, error) {
 		return Length{}, ErrNegative
 	}
 	mm := value * perUnit
-	if mm > maxMillimetres {
+	if mm > maxMillimeters {
 		return Length{}, ErrTooLarge
 	}
 	return Length{mm: mm}, nil

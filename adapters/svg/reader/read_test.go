@@ -23,7 +23,7 @@ func read(doc string) (design.Design, error) {
 func pt(x, y float64) geom.Point { return geom.Point{X: x, Y: y} }
 
 var _ = Describe("Read", func() {
-	It("reads a path in a document sized in millimetres", func() {
+	It("reads a path in a document sized in millimeters", func() {
 		// Arrange
 		doc := svg(`width="100mm" height="50mm" viewBox="0 0 100 50"`, `<path d="M0 0 L10 0"/>`)
 

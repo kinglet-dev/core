@@ -163,7 +163,7 @@ var _ = DescribeTable("Read reports bad shape attributes with the element",
 	Entry("a unit in a width", `<rect id="r1" width="10mm" height="5"/>`, `<rect id="r1">: width: units aren't supported`),
 	Entry("a bad radius", `<circle r="x"/>`, `<circle>: r: expected a number`),
 	Entry("a bad corner radius", `<rect width="5" height="5" rx="1px"/>`, `<rect>: rx: units aren't supported`),
-	Entry("a bad ellipse centre", `<ellipse cx="," rx="1"/>`, `<ellipse>: cx: expected a number`),
+	Entry("a bad ellipse center", `<ellipse cx="," rx="1"/>`, `<ellipse>: cx: expected a number`),
 	Entry("a bad line end", `<line x2="1 2" stroke="#000"/>`, `<line>: x2: expected a number`),
 	Entry("odd polygon points", `<polygon points="0 0 1"/>`, `<polygon>: points: points must come in x,y pairs`),
 )

@@ -4,7 +4,7 @@ import "math"
 
 // ArcTo converts an SVG elliptical arc from p0 to p1 into cubic segments.
 // rotation is the x-axis rotation in degrees; large and sweep are the SVG
-// flags. It follows the endpoint-to-centre conversion in the SVG
+// flags. It follows the endpoint-to-center conversion in the SVG
 // specification's implementation notes, then approximates each piece of at
 // most 90° with one cubic.
 func ArcTo(p0 Point, rx, ry, rotation float64, large, sweep bool, p1 Point) []Segment {
@@ -29,7 +29,7 @@ func ArcTo(p0 Point, rx, ry, rotation float64, large, sweep bool, p1 Point) []Se
 		rx, ry = rx*math.Sqrt(lambda), ry*math.Sqrt(lambda)
 	}
 
-	// Step 2: the centre in that frame. Rounding can make the radicand
+	// Step 2: the center in that frame. Rounding can make the radicand
 	// slightly negative for a half ellipse, so it is clamped at zero.
 	rx2, ry2, x12, y12 := rx*rx, ry*ry, x1*x1, y1*y1
 	coef := math.Sqrt(math.Max(0, (rx2*ry2-rx2*y12-ry2*x12)/(rx2*y12+ry2*x12)))
@@ -38,7 +38,7 @@ func ArcTo(p0 Point, rx, ry, rotation float64, large, sweep bool, p1 Point) []Se
 	}
 	cxp, cyp := coef*rx*y1/ry, -coef*ry*x1/rx
 
-	// Step 3: the centre in user space.
+	// Step 3: the center in user space.
 	cx := cos*cxp - sin*cyp + (p0.X+p1.X)/2
 	cy := sin*cxp + cos*cyp + (p0.Y+p1.Y)/2
 
