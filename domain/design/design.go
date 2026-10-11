@@ -17,6 +17,8 @@ type Shape struct {
 	Filled    bool      // has a fill (its outlines are scored, not the fill)
 	WhiteFill bool      // filled white, often a background rectangle
 	Element   int       // the element it came from: its place among all the document's elements, root first, from 0
+	Fill      string    // fill paint as written, lower case, after inheritance; "none" for no fill
+	Stroke    string    // stroke paint as written, lower case, after inheritance; "none" for no stroke
 }
 
 // ScoredLines flattens every shape into the lines the laser will score,
