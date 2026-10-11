@@ -16,13 +16,17 @@ var (
 	ErrNoSuchElement = errors.New("the document has no such element")
 	ErrOverlap       = errors.New("two changes overlap")
 	ErrBadXML        = errors.New("the document isn't well-formed XML")
+	ErrNotAShape     = errors.New("only shapes can be redrawn as paths")
+	ErrBadPathData   = errors.New("path data may only hold numbers, command letters, spaces, commas, signs and points")
 )
 
 // Change replaces one element, start tag to end tag, with new markup;
-// empty markup removes it.
+// empty markup removes it. With Redraw set, the element stays and is
+// redrawn as a path instead.
 type Change struct {
 	Element int    // the element's number
 	With    string // its replacement; "" removes it
+	Redraw  string // path data to redraw the element with; With is then ignored
 }
 
 // Apply returns the document with the changes made.
@@ -46,8 +50,14 @@ func Apply(src []byte, changes []Change) ([]byte, error) {
 		if s.start < from {
 			return nil, fmt.Errorf("%w: element %d is inside or the same as one already changed", ErrOverlap, c.Element)
 		}
+		with := c.With
+		if c.Redraw != "" {
+			if with, err = redraw(src, s, c.Redraw); err != nil {
+				return nil, fmt.Errorf("element %d: %w", c.Element, err)
+			}
+		}
 		out = append(out, src[from:s.start]...)
-		out = append(out, c.With...)
+		out = append(out, with...)
 		from = s.end
 	}
 	return append(out, src[from:]...), nil

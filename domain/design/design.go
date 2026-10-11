@@ -13,12 +13,14 @@ type Design struct {
 // Shape is one drawn element. Laser software scores its path: every outline
 // of a filled shape, and the line itself of a hairline (stroke, no fill).
 type Shape struct {
-	Path      geom.Path // millimetres
-	Filled    bool      // has a fill (its outlines are scored, not the fill)
-	WhiteFill bool      // filled white, often a background rectangle
-	Element   int       // the element it came from: its place among all the document's elements, root first, from 0
-	Fill      string    // fill paint as written, lower case, after inheritance; "none" for no fill
-	Stroke    string    // stroke paint as written, lower case, after inheritance; "none" for no stroke
+	Path      geom.Path   // millimetres
+	Filled    bool        // has a fill (its outlines are scored, not the fill)
+	WhiteFill bool        // filled white, often a background rectangle
+	Element   int         // the element it came from: its place among all the document's elements, root first, from 0
+	Fill      string      // fill paint as written, lower case, after inheritance; "none" for no fill
+	Stroke    string      // stroke paint as written, lower case, after inheritance; "none" for no stroke
+	Local     geom.Path   // the path as the element draws it, in its own user units
+	ToMM      geom.Matrix // maps Local to millimeters: Path is Local.Transform(ToMM)
 }
 
 // ScoredLines flattens every shape into the lines the laser will score,

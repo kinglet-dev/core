@@ -8,8 +8,12 @@ import (
 )
 
 // span is where one element lies in the document: from the < of its start
-// tag to just after its end tag (or the /> of an empty-element tag).
-type span struct{ start, end int64 }
+// tag to just after its end tag (or the /> of an empty-element tag), with
+// where its start tag ends and the tag as decoded.
+type span struct {
+	start, tagEnd, end int64
+	tag                xml.StartElement
+}
 
 // spans finds every element's span, numbered in document order. The
 // decoder's offset before a token is where that token starts, and after
@@ -27,10 +31,10 @@ func spans(src []byte) ([]span, error) {
 		if err != nil {
 			return nil, err
 		}
-		switch tok.(type) {
+		switch t := tok.(type) {
 		case xml.StartElement:
 			open = append(open, len(out))
-			out = append(out, span{start: at})
+			out = append(out, span{start: at, tagEnd: dec.InputOffset(), tag: t.Copy()})
 		case xml.EndElement:
 			out[open[len(open)-1]].end = dec.InputOffset()
 			open = open[:len(open)-1]

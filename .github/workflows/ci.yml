@@ -60,6 +60,7 @@ jobs:
           go test ./adapters/svg/syntax -run '^$' -fuzz=FuzzParseTransform -fuzztime=30s
           go test ./adapters/svg/reader -run '^$' -fuzz=FuzzRead -fuzztime=30s
           go test ./adapters/svg/edit -run '^$' -fuzz=FuzzApply -fuzztime=30s
+          go test ./adapters/svg/edit -run '^$' -fuzz=FuzzRedraw -fuzztime=30s
           go test ./domain/density -run '^$' -fuzz=FuzzDensest -fuzztime=30s
           go test ./domain/crossing -run '^$' -fuzz=FuzzFind -fuzztime=30s
           go test ./domain/enclose -run '^$' -fuzz=FuzzSmallest -fuzztime=30s

@@ -28,3 +28,16 @@ func (m Matrix) Then(n Matrix) Matrix {
 		F: n.B*m.E + n.D*m.F + n.F,
 	}
 }
+
+// Inverse returns the transform that undoes m, and false when there is
+// none: when m flattens the plane onto a line or a point.
+func (m Matrix) Inverse() (Matrix, bool) {
+	det := m.A*m.D - m.B*m.C
+	if det == 0 {
+		return Matrix{}, false
+	}
+	return Matrix{
+		A: m.D / det, B: -m.B / det, C: -m.C / det, D: m.A / det,
+		E: (m.C*m.F - m.D*m.E) / det, F: (m.B*m.E - m.A*m.F) / det,
+	}, true
+}
