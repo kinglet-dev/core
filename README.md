@@ -53,9 +53,10 @@ Every inner edge is drawn twice, once by each square beside it. A test runs this
 |---|---|
 | `adapters/svg/reader` | Reads an SVG into a design at its physical size, with limits on size, depth and element count. Refuses what it can't measure (`<text>`, `<image>`, `<use>`, CSS classes), with a fix for each. |
 | `adapters/svg/syntax` | Parses SVG path data and transforms. |
+| `adapters/svg/edit` | Replaces or removes chosen elements and keeps every other byte of the file as it was. |
 | `adapters/files` | Opens a file or standard input within a size limit. |
 | `adapters/buildinfo` | Works out the running version, for `--version`. |
-| `domain/design` | A design: its size and shapes, and the lines a laser scores. |
+| `domain/design` | A design: its size and shapes (with each shape's element and paint), and the lines a laser scores. |
 | `domain/geom` | Points, affine transforms, paths, polylines; curves flattened within a tolerance. |
 | `domain/units` | Lengths with units (`mm`, `cm`, `in`, `pt`, `px`). |
 | `domain/crossing` | Where lines cross, and line lying on other line. |
