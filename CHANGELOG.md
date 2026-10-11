@@ -2,6 +2,15 @@
 
 All notable changes to core. Versions follow [Semantic Versioning](https://semver.org/). Until 1.0, minor versions may change the API; patch versions never do.
 
+## 0.3.0 (unreleased)
+
+### Added
+
+- **Each shape keeps its path as the element draws it** (`Shape.Local`), in the element's own units, with the transform to millimeters (`Shape.ToMM`), so a tool can write a changed path back.
+- **`edit.Change.Redraw`:** keeps an element and redraws it as a `<path>` with new path data. Its other attributes stay exactly as written, and its contents stay. Its own geometry attributes go, and so does editor data that would redraw the old shape. Path data with characters path data never has is refused.
+- **`syntax.FormatPath`:** writes path data with absolute commands, rounded to a millionth of a unit.
+- **Geometry:** `Part` cuts a segment between two parameters exactly (curves stay curves), `Matrix.Inverse` undoes a transform, and `Subpath.Reverse` runs a subpath the other way.
+
 ## 0.2.0 (2026-10-11)
 
 ### Added
